@@ -17,7 +17,7 @@ def getComments():
     num_total_req = 0 # <--- Esto me sirve para obtener el numero total de los pedidos en la publicacion anterior
     id_post = leer_postID() # <--- Guardo en una variable el ID del post
 
-    comentarios = graph.get_connections(id = f'104728225840140_{id_post}', connection_name = 'comments') # <--- Solicito todos los comentarios del post
+    comentarios = graph.get_connections(id = f'111924031719727_{id_post}', connection_name = 'comments') # <--- Solicito todos los comentarios del post
 
     for comentario in comentarios['data']: # <--- Itero los comenterios
         id_comentario = comentario['id'] # <--- Me da el ID del comentario

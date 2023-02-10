@@ -38,7 +38,8 @@ def main():
                 post_id_viejo = leer_postID()
                 hora, minuto, segundo = obtenerHora()
                 horaActual = f'{str(hora)}:{str(minuto)}:{str(segundo)}'
-                mensaje = f'Su petición.\nNúmero de imagen: {str(num_img)}\nHora: {horaActual}'
+                # mensaje = f'Su petición.\nNúmero de imagen: {str(num_img)}\nHora: {horaActual}'
+                mensaje = 'EL BOT ESTÁ DE VUELTA!'
 
                 if extension == 'png':
                     publicar_imagen = graph.put_photo(image = open(f'exported/{str(num_img)}.png', 'rb'), message = mensaje)
@@ -56,7 +57,7 @@ def main():
                             time.sleep(1)
                 else:
                     if extension == 'video':
-                        url_solicitar_subir_video = 'https://graph.facebook.com/104728225840140/videos'
+                        url_solicitar_subir_video = 'https://graph.facebook.com/111924031719727/videos'
                         fp = f'exported/{str(num_img)}.mp4'
                         files = {'source': open(fp, 'rb')}
                         payload = {'access_token': token_de_acceso, 'title': f'Petición No. {str(num_img)}', 'description': mensaje}
@@ -64,7 +65,7 @@ def main():
                         try:
                             requests.post(url_solicitar_subir_video, files = files, data = payload, verify = False)
                             time.sleep(15)
-                            url_solicitar_subir_video = 'https://graph.facebook.com/104728225840140/videos?access_token=' + token_de_acceso
+                            url_solicitar_subir_video = 'https://graph.facebook.com/111924031719727/videos?access_token=' + token_de_acceso
                             videos_subidos = requests.get(url_solicitar_subir_video).json()
                             post_id_nuevo = videos_subidos['data'][0]['id']
                             print(videos_subidos['data'][0]['id'])
@@ -127,17 +128,17 @@ def obtenerHora():
 if __name__ == '__main__':
     # main()
     schedule.every().hour.at(':00').do(main)
-    schedule.every().hour.at(':05').do(main)
+    # schedule.every().hour.at(':05').do(main)
     schedule.every().hour.at(':10').do(main)
-    schedule.every().hour.at(':15').do(main)
+    # schedule.every().hour.at(':15').do(main)
     schedule.every().hour.at(':20').do(main)
-    schedule.every().hour.at(':25').do(main)
+    # schedule.every().hour.at(':25').do(main)
     schedule.every().hour.at(':30').do(main)
-    schedule.every().hour.at(':35').do(main)
+    # schedule.every().hour.at(':35').do(main)
     schedule.every().hour.at(':40').do(main)
-    schedule.every().hour.at(':45').do(main)
+    # schedule.every().hour.at(':45').do(main)
     schedule.every().hour.at(':50').do(main)
-    schedule.every().hour.at(':55').do(main)
+    # schedule.every().hour.at(':55').do(main)
 
     while True:
         hora, minutos, segundo = obtenerHora()
