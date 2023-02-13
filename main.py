@@ -38,8 +38,8 @@ def main():
                 post_id_viejo = leer_postID()
                 hora, minuto, segundo = obtenerHora()
                 horaActual = f'{str(hora)}:{str(minuto)}:{str(segundo)}'
-                # mensaje = f'Su petición.\nNúmero de imagen: {str(num_img)}\nHora: {horaActual}'
-                mensaje = 'EL BOT ESTÁ DE VUELTA!'
+                mensaje = f'Su petición.\nNúmero de imagen: {str(num_img)}\nHora: {horaActual}'
+                # mensaje = 'EL BOT ESTÁ DE VUELTA!'
 
                 if extension == 'png':
                     publicar_imagen = graph.put_photo(image = open(f'exported/{str(num_img)}.png', 'rb'), message = mensaje)
@@ -109,7 +109,7 @@ def main():
 
 def obtenerHora():
     now = datetime.now()
-    hora = now.hour #- 6 # <--- El 6 es por el utf-6
+    hora = now.hour - 6 # <--- El 6 es por el utf-6
     minuto = now.minute
     segundo = now.second
 
@@ -129,15 +129,15 @@ if __name__ == '__main__':
     # main()
     schedule.every().hour.at(':00').do(main)
     # schedule.every().hour.at(':05').do(main)
-    schedule.every().hour.at(':10').do(main)
-    # schedule.every().hour.at(':15').do(main)
-    schedule.every().hour.at(':20').do(main)
+    # schedule.every().hour.at(':10').do(main)
+    schedule.every().hour.at(':15').do(main)
+    # schedule.every().hour.at(':20').do(main)
     # schedule.every().hour.at(':25').do(main)
     schedule.every().hour.at(':30').do(main)
     # schedule.every().hour.at(':35').do(main)
-    schedule.every().hour.at(':40').do(main)
-    # schedule.every().hour.at(':45').do(main)
-    schedule.every().hour.at(':50').do(main)
+    # schedule.every().hour.at(':40').do(main)
+    schedule.every().hour.at(':45').do(main)
+    # schedule.every().hour.at(':50').do(main)
     # schedule.every().hour.at(':55').do(main)
 
     while True:
