@@ -1,6 +1,7 @@
 import urllib
 import time
 from imgNumber import leer_num_img
+import requests
 
 def descargar_imagen(src):
     numero_img = leer_num_img() # <--- Leo el numero de imagen
